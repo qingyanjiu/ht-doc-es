@@ -55,4 +55,19 @@ public class HtDocDto {
                 ", message='" + message + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HtDocDto)) return false;
+
+        HtDocDto htDocDto = (HtDocDto) o;
+
+        return path.equals(htDocDto.path);
+    }
+
+    @Override
+    public int hashCode() {
+        return path.hashCode();
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class HtDocServiceImpl implements HtDocService {
@@ -19,7 +20,7 @@ public class HtDocServiceImpl implements HtDocService {
     public List<HtDocDto> findHtDocByMessage(String searchWord) {
         SearchHits<HtDocDto> result =  htDocRepository.findByMessage(searchWord);
         List<HtDocDto> list = result.map(r -> new HtDocDto(r.getId(), r.getContent().getPath(),
-                r.getHighlightField("message").get(0))).toList();
+                r.getHighlightField("message").get(0))).stream().distinct().collect(Collectors.toList());
         return list;
     }
 }
