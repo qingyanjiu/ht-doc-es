@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  backend:
+    image: alaien/ht-es
+    restart: always
+
+  frontend:
+    depends_on:
+      - backend
+    image: alaien/ht
+    ports:
+      - "30000:80"
+    restart: always
