@@ -59,7 +59,7 @@
       function qryHtDoc(word) {
       $("#loading").show();
         $.ajax({
-          url: "http://localhost:8080/ht-doc/qryHtDocByMessage",
+          url: "http://139.198.26.182:30000/api/ht-doc/qryHtDocByMessage",
           data: { searchWord: word },
           success: function (resp) {
           $("#loading").hide();
