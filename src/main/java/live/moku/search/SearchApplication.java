@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -11,6 +14,8 @@ import org.springframework.web.filter.CorsFilter;
 import java.util.Arrays;
 
 @SpringBootApplication
+@EnableScheduling
+@EnableElasticsearchRepositories(basePackages = "live.moku.search.repository")
 public class SearchApplication {
 
     public static void main(String[] args) {
@@ -32,4 +37,11 @@ public class SearchApplication {
         filterRegistrationBean.setOrder(0);
         return filterRegistrationBean;
     }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        RestTemplate restTemplate =  new RestTemplate();
+        return restTemplate;
+    }
+
 }
