@@ -20,7 +20,7 @@ public class HtDocDto {
     @Field
     private String path;
 
-    @Field
+    @Field(analyzer = "simple", searchAnalyzer = "simple")
     private String message;
 
     public String getPath() {
