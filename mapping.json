@@ -1,0 +1,40 @@
+{
+  "template": "ht-doc",
+  "settings": {
+  },
+  "mappings": {
+    "properties": {
+      "path": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "@timestamp": {
+        "type": "date"
+      },
+      "@version": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "message": {
+        "type": "text",
+        "analyzer": "simple",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}
