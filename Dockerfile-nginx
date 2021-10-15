@@ -1,0 +1,10 @@
+# 首先进入项目目录执行 npm run build
+# 然后 docker build -t IMAGE_NAME .
+FROM nginx
+ADD ./dist /usr/share/nginx/html/
+ADD ./nginx /web
+WORKDIR /usr/share/nginx/html
+RUN mv /web/nginx.conf /etc/nginx/
+RUN mv /web/default.conf /etc/nginx/conf.d/
+RUN rm -f Dockerfile
+EXPOSE 80
