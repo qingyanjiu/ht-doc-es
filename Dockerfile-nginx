@@ -3,7 +3,7 @@
 FROM nginx
 ADD ./nginx /usr/share/nginx/html/
 WORKDIR /usr/share/nginx/html
-RUN mv /web/nginx.conf /etc/nginx/
-RUN mv /web/default.conf /etc/nginx/conf.d/
+RUN mv nginx.conf /etc/nginx/
+RUN mv default.conf /etc/nginx/conf.d/
 RUN rm -f Dockerfile
 EXPOSE 80
