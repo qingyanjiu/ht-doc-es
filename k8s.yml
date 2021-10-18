@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ht-frontend
+  name: frontend
   labels:
     app: ht-frontend
 spec:
@@ -75,7 +75,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ht-backend
+  name: backend
   labels:
     app: ht-backend
 spec:
@@ -83,5 +83,5 @@ spec:
     app: backend
   type: ClusterIP
   ports:
-  - port: 80
+  - port: 8080
     targetPort: 8080
